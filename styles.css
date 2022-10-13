@@ -42,7 +42,7 @@ header {
 .timeline {
   list-style: none;
   position: relative;
-  padding: 20px 0 20px;
+  padding: 20px 0;
   width: 100%;
 }
 
@@ -51,6 +51,25 @@ header {
   display: flex;
   position: relative;
   margin-bottom: 50px;
+}
+
+/* dots */
+.timeline li:before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  top: 18px;
+  left: 50%;
+  background: var(--light-color);
+  margin-left: -6px;
+  z-index: 10;
+}
+
+/* zig-zag entries */
+.timeline li:nth-child(even) {
+  justify-content: flex-end;
 }
 
 .timeline .panel {
@@ -111,21 +130,15 @@ header {
   background: var(--light-color);
 }
 
-/* dots */
-.timeline li:before {
-  position: absolute;
-  content: "";
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  top: 18px;
-  left: 50%;
-  background: var(--light-color);
-  margin-left: -6px;
-  z-index: 10;
-}
+@media only screen and (max-width: 1000px) {
+  .timeline {
+    --media-adjust: 200vw;
+    margin-left: calc(-0.4 * var(--media-adjust));
+    width: var(--media-adjust);
+    margin-right: 5px;
+  }
 
-/* zig-zag entries */
-.timeline li:nth-child(even) {
-  justify-content: flex-end;
+  .timeline li:nth-child(n) {
+    justify-content: flex-end;
+  }
 }
