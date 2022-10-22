@@ -90,15 +90,13 @@ header {
   width: 46%;
   border-radius: 10px;
   background: var(--light-color);
+
+  transition: 0.1s;
+  overflow: hidden;
 }
 
-.timeline h5 {
-  font-style: italic;
-  margin: 0.1rem auto 0;
-}
-
-.timeline .info {
-  padding: 0 20px 10px;
+.panel:has(summary:hover):not([open]) {
+  transform: scale(1.01);
 }
 
 .timeline summary {
@@ -110,16 +108,19 @@ header {
   margin-bottom: 0px;
   transition: all 0.2s cubic-bezier(0.2, 1, 0.3, 1);
   font-weight: 600;
+  cursor: pointer;
 }
 
-.timeline summary:hover {
-  cursor: pointer;
-  background: var(--light-color);
-  border-radius: 10px;
+.timeline h5 {
+  font-style: italic;
+  margin: 0.1rem auto 0;
+}
+
+.timeline .info {
+  padding: 0 20px 10px;
 }
 
 .timeline .panel[open] summary {
-  border-radius: 10px 10px 0 0;
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
